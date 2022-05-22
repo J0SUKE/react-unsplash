@@ -8,6 +8,10 @@ function Images() {
   const topic = useContext(topicContext);
 
   useEffect(()=>{
+    setCount([1,2,3,4,5,6,7,8,9,10,11,12]);
+  },[topic])
+
+  useEffect(()=>{
     window.addEventListener("scroll",(e)=>{
       
       const{scrollTop,scrollHeight,clientHeight} = document.documentElement;
@@ -27,6 +31,7 @@ function Images() {
       }
     })
   },[])
+
 
   return (
     <section className='gallery-section'>
