@@ -1,0 +1,49 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url("../assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
+}
+
+*,*::before,*::after
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    font-family: "Montserrat";
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.gallery-section
+{
+    width: 80%;
+    margin: 2rem auto;
+}
+
+form
+{
+    margin: 3rem auto;
+    width: 50%;
+    input{
+        width: 100%;
+    }
+}
+
+.gallery
+{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(auto-fit,minmax(10rem,1fr));
+    grid-gap:1rem;
+    div{
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            overflow: hidden;
+        }
+    }
+}
