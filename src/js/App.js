@@ -5,22 +5,30 @@ import Images from './components/Images';
 export const topicContext = React.createContext("");
 export const settopicContext = React.createContext(null);
 
+function TopicProvider({children}) {
+    const[topic,setTopic] = useState("");
+    
+    function setCurrentTopic(value) {
+        setTopic(value);
+    }
+
+    return(
+        <topicContext.Provider value={topic}>
+            <settopicContext.Provider value={setCurrentTopic}>
+                {children}
+            </settopicContext.Provider>
+        </topicContext.Provider>
+    )
+}
+
 
 function App() {
   
-  const[topic,setTopic] = useState("");
-  
-  function setCurrentTopic(value) {
-      setTopic(value);
-  }
-  
     return (
-        <topicContext.Provider value={topic}>
-            <settopicContext.Provider value={setCurrentTopic}>
-                <SearchBar/>
-                <Images/>
-            </settopicContext.Provider>
-        </topicContext.Provider>
+        <TopicProvider>
+            <SearchBar/>
+            <Images/>
+        </TopicProvider>
   )
 }
 
